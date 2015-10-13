@@ -1,0 +1,33 @@
+求正整数的质因子
+代码：
+#include <stdio.h>
+int main()
+{
+	int num;
+	int i;
+
+	num = 0;
+
+	do
+	{
+		printf("请输入一正整数:\n");
+		scanf("%d", &num);
+	}while(num<=0);
+
+	printf("%d该数的质因子为:\n",num);
+
+	for(i=2; i<=num; i++)
+	{
+		while(num%i == 0)
+		{
+			num = num/i;
+			printf("%3d",i);
+		}	
+		
+		if (num == 1)break;
+	}
+
+	printf("\n");
+
+	return 0;
+}
