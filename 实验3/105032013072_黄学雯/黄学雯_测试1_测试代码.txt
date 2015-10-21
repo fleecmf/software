@@ -1,0 +1,108 @@
+package Test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import studentSystem.JavaBean.Operation;
+import studentSystem.JavaBean.Student;
+
+public class OperationTest {
+
+	private Operation operation = new Operation();
+
+	@Test
+	public void testChangeStudent_1() {
+		System.out.println("测试一：学生系统为空");
+		String num = "01";
+		Student newstu = new Student();
+		newstu.setNumber("01");
+		newstu.setAge(10);
+		newstu.setName("limig");
+		operation.changeStudent(num, newstu);
+		operation.searchAll();
+		System.out.println("--------------------------");
+	}
+
+	@Test
+	public void testChangeStudent_2() {
+		System.out.println("测试二：查询的学号不存在");
+
+		// 添加学号为01的学生
+		Student student = new Student();
+		student.setNumber("01");
+		student.setName("黎明");
+		student.setAge(20);
+		operation.addStudent(student);
+
+		// 查询学号为02的学生
+		String num = "02";
+		Student newstu = new Student();
+		newstu.setNumber("01");
+		newstu.setAge(10);
+		newstu.setName("limig");
+		operation.changeStudent(num, newstu);
+		System.out.println("--------------------------");
+	}
+
+	@Test
+	public void testChangeStudent_3() {
+		System.out.println("测试三：修改信息的学生对象为null");
+		// 添加学号为01的学生
+		Student student = new Student();
+		student.setNumber("01");
+		student.setName("黎明");
+		student.setAge(20);
+		operation.addStudent(student);
+
+		// 查询学号为01的学生
+		String num = "02";
+		Student newstu = null;
+		operation.changeStudent(num, newstu);
+		System.out.println("--------------------------");
+
+	}
+
+	 @Test
+	public void testChangeStudent_4() {
+		System.out.println("测试四：年龄没有赋值");
+
+		// 添加学号为01的学生
+		Student student = new Student();
+		student.setNumber("01");
+		student.setName("黎明");
+		student.setAge(20);
+		operation.addStudent(student);
+
+		// 查询学号为01的学生
+		String num = "01";
+		Student newstu = new Student();
+		newstu.setNumber("02");
+		newstu.setName("夏明");
+		operation.changeStudent(num, newstu);
+		operation.searchAll();
+		System.out.println("--------------------------");
+	}
+
+	@Test
+	public void testChangeStudent_5() {
+		System.out.println("测试四:正常情况");
+		// 添加学号为01的学生
+		Student student = new Student();
+		student.setNumber("01");
+		student.setName("黎明");
+		student.setAge(20);
+		operation.addStudent(student);
+
+		// 查询学号为01的学生
+		String num = "01";
+		Student newstu = new Student();
+		newstu.setNumber("02");
+		newstu.setName("夏明");
+		newstu.setAge(15);
+		operation.changeStudent(num, newstu);
+		operation.searchAll();
+	}
+
+}

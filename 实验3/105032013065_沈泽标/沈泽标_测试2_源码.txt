@@ -1,0 +1,38 @@
+package 素数;
+import java.util.Scanner;
+public class SuShu {
+	public void test() {
+		long firstnum;
+		long secondnum;
+		boolean flag = true;
+		int num = 0;
+		Scanner input = new Scanner(System.in);
+		while (true) {
+			System.out.println("请输入第一个数字：");
+			firstnum = input.nextLong();
+			System.out.println("请输入第二个数字：");
+			secondnum = input.nextLong();
+			if (firstnum > secondnum ) {
+				System.out.println("您输入的数据不正确！");
+			}else
+			break;
+		}
+		for (long i = firstnum; i < secondnum; i++, flag = true) {
+			for (long j = 2; j <= Math.sqrt(i); j++) {
+				if (i % j == 0) {
+					flag = false;
+					break;
+				}
+			}
+			if (flag) {
+				num++;
+			}
+		}
+		System.out.println(num);
+	}
+}
+
+//	public static void main(String[] args) {
+//		SuShu s = new SuShu();
+//		s.test();
+//	}

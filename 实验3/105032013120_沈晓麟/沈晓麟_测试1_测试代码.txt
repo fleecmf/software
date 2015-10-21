@@ -1,0 +1,38 @@
+£®≤‚ ‘”√¿˝£∫£©
+package com.shenxiaolin.util;
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+public class CalculatorTest2 {
+	@Before
+	public void setUp() throws Exception {
+	}
+	@After
+	public void tearDown() throws Exception {
+	}
+	@Test
+	public void testAdd() {
+		Calculator cal=new Calculator();
+		int result=cal.add(3, 5);
+		assertEquals(8,result);
+	}
+    @Test
+   	public void testSubstract() {
+   		Calculator cal=new Calculator();
+   		int result=cal.substract(1, 6);
+   		assertEquals(-5,result);
+   	}
+    @Test
+   	public void testMultiply() {
+   		Calculator cal=new Calculator();
+   		int result=cal.multiply(5, 9);
+   		assertEquals(45,result);
+   	}
+    @Test
+   	public void testDivide() throws Exception {
+   		Calculator cal=new Calculator();
+   		int result=cal.divide(12,3);
+   		assertEquals(4,result);
+   	}
+}

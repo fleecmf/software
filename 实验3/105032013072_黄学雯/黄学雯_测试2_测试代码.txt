@@ -1,0 +1,64 @@
+package equatio;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class mianTest {
+
+	@Test
+	public void testResult_1() {
+		System.out.println("≤‚ ‘“ª£∫");
+	Equation equation=new Equation();
+	equation.setA(0);
+	equation.setB(1);
+	equation.setC(2);
+	mian.result(equation);
+	}
+
+	@Test
+	public void testResult_2() {
+		System.out.println("≤‚ ‘∂˛£∫");
+	Equation equation=new Equation();
+	equation.setA(1);
+	equation.setB(2);
+	equation.setC(1);
+	mian.result(equation);
+	}
+	
+	@Test
+	public void testResult_3() {
+		System.out.println("≤‚ ‘»˝£∫");
+	Equation equation=new Equation();
+	equation.setA(2);
+	equation.setB(6);
+	equation.setC(1);
+	mian.result(equation);
+	}
+
+	@Test
+	public void testResult_4() {
+		System.out.println("≤‚ ‘Àƒ£∫");
+	Equation equation=new Equation();
+	equation.setA(1);
+	equation.setB(2);
+	equation.setC(2);
+	mian.result(equation);
+	}
+	
+	@Test
+	public void testResult_5() {
+		System.out.println("≤‚ ‘ŒÂ£∫");
+	Equation equation=null;
+	mian.result(equation);
+	}
+	
+	@Test
+	public void testResult_6() {
+		System.out.println("≤‚ ‘¡˘£∫");
+	Equation equation=new Equation();
+	equation.setB(2);
+	equation.setC(2);
+	mian.result(equation);
+	}
+}

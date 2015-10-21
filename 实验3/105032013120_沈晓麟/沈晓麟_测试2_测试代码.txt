@@ -1,0 +1,35 @@
+测试用例：
+package com.shenxiaolin;
+import java.security.PublicKey;
+import junit.framework.TestCase;
+public class LargestTest extends TestCase {
+	protected void setUp() throws Exception {
+		super.setUp();
+	}
+	protected void tearDown() throws Exception {
+		super.tearDown();
+	}
+	public void testOrder() {//当数组按照顺序排列
+		assertEquals(9, Largest.Largest(new int[]{9,8,7}));
+		assertEquals(9,Largest.Largest(new int[]{7,9,8}));
+		assertEquals(9, Largest.Largest(new int[]{7,8,9}));
+		assertEquals(9, Largest.Largest(new int[]{9}));
+	}
+    public void testDups() {//当数组中有重复的元素
+    	assertEquals(9, Largest.Largest(new int[]{7,9,8,9}));
+    }
+    public void testNegtive(){//当数组中有负数
+    	assertEquals(-7, Largest.Largest(new int[]{-7,-9,-8}));
+    }
+    public void testEmpty() { //当数组是空的时候
+		try { Largest.Largest(new int[]{} );
+		      fail("应该给用户一个不允许为空的提示！");
+			
+		} catch (RuntimeException e) {
+			// TODO: handle exception
+			assertTrue(true);
+		}
+	}
+		
+}
+

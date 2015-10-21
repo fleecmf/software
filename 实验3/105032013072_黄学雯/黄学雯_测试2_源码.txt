@@ -1,0 +1,38 @@
+package equatio;
+
+public class mian {
+  
+	public static void result(Equation equation){
+		double disc,realpart,imagpart,a,b,c,x1,x2;
+		a=equation.getA();
+		b=equation.getB();
+		c=equation.getC();
+		if(Math.abs(a)<=1e-6){
+			System.out.println("不是二次方程");
+			return;
+		}else{
+			disc=b*b-4*a*c;
+			if(Math.abs(disc)<=1e-6){
+				System.out.print("有两个相等实根：");
+				System.out.printf("%.2f",-b/(2*a));
+				System.out.println("");
+			}
+			else if(disc>1e-6){
+				x1=(-b+Math.sqrt(disc))/(2*a);
+				x2=(-b-Math.sqrt(disc))/(2*a);
+				System.out.print("有两个不相等实根：");
+				System.out.printf("%.2f"+"和"+"%.2f",x1,x2);
+				System.out.println("");
+			}
+			else{
+				realpart=-b/(2*a);
+				imagpart=Math.sqrt(-disc)/(2*a);
+				System.out.println("有两个共轭复根：");
+				System.out.printf("%.2f"+"+"+"%.2f",realpart,imagpart);
+				System.out.println("");
+				System.out.printf("%.2f"+"-"+"%.2f",realpart,imagpart);
+				System.out.println("");
+			}
+		}
+	}
+}

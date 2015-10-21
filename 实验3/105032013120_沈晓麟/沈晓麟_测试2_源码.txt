@@ -1,0 +1,13 @@
+package com.shenxiaolin;
+//传入整型的数组，将数组中的最大值返回出来。
+public class Largest {
+     public static int Largest(int[] list) {
+		int index,max=Integer.MIN_VALUE;
+		for(index=0;index<list.length-1;index++){
+			if (list[index]>max) {
+				max=list[index];
+			}
+		}
+		return max;
+	}
+}
