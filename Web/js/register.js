@@ -140,7 +140,6 @@ $(document).ready(function(){
                 dataType: "json",
                 url: "http://192.168.199.242:8080/BSMD//register.do",
                 success: function (data) {
-
                     console.log(data);
                     if (data.message =="success") {
                         var html = '';

@@ -105,10 +105,12 @@ function loadItem() {
                 if(json.cartList==null){
                     //提示购物车为空
                     $(".emptycart").show();
+                    $("#cartpaybar").hide();
                     return;
                 }
                 if(json!=null){
                     $(".emptycart").hide();
+                    $("#cartpaybar").show();
                     //店铺列表
                     var html='';
                     var number=0;

@@ -97,9 +97,18 @@
     position: relative;
     font-weight:200;
     font-size: 0.8em;
-    padding: 8px 0px 5px;
     color: #333;
 }
+.btn-group>button,.btn-group>span{
+    font-size: 0.8em;
+}
+.dropdown-menu>li{
+    font-size: 0.8em;
+}
+
+
+
+
 /*收货地址*/
 
 .hd-prochg{

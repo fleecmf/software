@@ -31,11 +31,21 @@
                     <a id="global-hd-loginlink" rel="nofollow" href="login.html">登录</a>
                     /
                     <a rel="nofollow" href="register.ht ml">注册</a>
-                </div>
-                <div class=" label box haslogin" style="display: none;">
-                    <span class="hd_hi">Hi,</span>
-                    <a id="username"></a>
-                </div>
+                    <div class=" label box haslogin" style="display: none;">
+                        <span class="hd_hi">Hi,</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info" id="username"></button>
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="usercenter.html">个人中心</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="javaScript:;" id="loginout">退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 <div class="box1 ">
                     <span class="hd_hi">收货地：</span>
                     <input readonly id="cityname" type="text" class="" data-positon="" data-cityname="" style="width: 200px;"

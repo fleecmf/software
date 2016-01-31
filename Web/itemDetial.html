@@ -11,10 +11,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel='stylesheet' type='text/css'/>
     <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="css/etalage.css" rel="stylesheet"/>
     <link href="css/changge.css" rel="stylesheet"/>
     <link href="css/ofsingle.css" rel="stylesheet"/>
-    <link href="css/flexslider.css" rel='stylesheet' type='text/css'/>
     <link href="css/jquery.spinner.css" rel="stylesheet"/>
 </head>
 <body>
@@ -31,7 +29,18 @@
                 </div>
                 <div class=" label box haslogin" style="display: none;">
                     <span class="hd_hi">Hi,</span>
-                    <a id="username"></a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info" id="username"></button>
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="usercenter.html">个人中心</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javaScript:;" id="loginout">退出</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="box1 ">
                     <span class="hd_hi">收货地：</span>
@@ -328,21 +337,10 @@
 
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script defer src="js/jquery.flexslider.js"></script>
-<script src="js/responsiveslides.min.js"></script>
-<script src="js/jquery.etalage.min.js"></script>
 <script src="js/jquery.spinner.js"></script>
+<script src="js/jquery.colorbox-min.js" charset="utf-8"></script>
 <script src="js/topjs.js"></script>
 <script src="js/jquery.cookie.js"></script>
 <script src="js/itemdetails.js"></script>
-<script type="application/x-javascript">
-    addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-</script>
-
 </body>
 </html>		

@@ -28,7 +28,18 @@
                 </div>
                 <div class=" label box haslogin" style="display: none;">
                     <span class="hd_hi">Hi,</span>
-                    <a id="username"></a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info" id="username"></button>
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="usercenter.html">个人中心</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javaScript:;" id="loginout">退出</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="box1 ">
                     <span class="hd_hi">收货地：</span>
@@ -337,49 +348,42 @@
                                 <!--</div>-->
                             </div>
                         </div>
-                        <div class="info_name">
-                            <span class="glyphicon glyphicon-record r_style"></span>
+                        <!--<div class="info_name">-->
+                            <!--<span class="glyphicon glyphicon-record r_style"></span>-->
 
-                            <div class="state">安全</div>
-                            <div
-                                    class="title">登录名：
-                            </div>
-                            <span class="info">某某某</span>
-                        </div>
-                        <div class="info_number">
-                            <span class="glyphicon glyphicon-record r_style"></span><span
-                                class="state">安全</span>
+                            <!--<div class="state">安全</div>-->
+                            <!--<div class="title">登录名：</div>-->
+                            <!--<span class="info">某某某</span>-->
+                        <!--</div>-->
+                        <!--<div class="info_number">-->
+                            <!--<span class="glyphicon glyphicon-record r_style"></span>-->
+                            <!--<span class="state">安全</span>-->
+                            <!--<div class="title">绑定手机号：</div>-->
+                            <!--<div class="info"></div>-->
+                            <!--<div class="setting">设置</div>-->
+                            <!--<div class="pnumber">-->
+                                <!--<p class="confirm">您已成功认证手机号码！</p>-->
 
-                            <div
-                                    class="title">绑定手机号：
-                            </div>
-                            <div class="info"></div>
-                            <div
-                                    class="setting">设置
-                            </div>
-                            <div class="pnumber">
-                                <p class="confirm">您已成功认证手机号码！</p>
+                                <!--<p>你已认证号码：-->
+                                    <!--<span></span>-->
+                                <!--</p>-->
+                                <!--<button type="buttom" class="btn_style" onclick="eg.changePnumber2()">更换号码</button>-->
+                            <!--</div>-->
+                            <!--<div class="new_pnumber">-->
+                                <!--<p>当前手机号码：<span class="phone_number"></span>-->
 
-                                <p>你已认证号码：
-                                    <span></span>
-                                </p>
-                                <button type="buttom" class="btn_style" onclick="eg.changePnumber2()">更换号码</button>
-                            </div>
-                            <div class="new_pnumber">
-                                <p>当前手机号码：<span class="phone_number"></span>
+                                <!--<p><label>新手机号码：</label><input type="text" size="30" id="telephone"><span-->
+                                        <!--class="error1">输入的格式不正确，请重新输入!</span></span>-->
+                                <!--</p>-->
+                                <!--<button type="button" class="btn_style" onclick="eg.changePnumber3()">确认</button>-->
+                            <!--</div>-->
+                            <!--<div class="new_result">-->
+                                <!--<p class="check_new">修改成功~~</p>-->
 
-                                <p><label>新手机号码：</label><input type="text" size="30" id="telephone"><span
-                                        class="error1">输入的格式不正确，请重新输入!</span></span>
-                                </p>
-                                <button type="button" class="btn_style" onclick="eg.changePnumber3()">确认</button>
-                            </div>
-                            <div class="new_result">
-                                <p class="check_new">修改成功~~</p>
-
-                                <p class="check_new">请登录您的邮箱进行验证</p>
-                                <button type="button" class="btn_style" onclick="eg.changePnumber4()">确定</button>
-                            </div>
-                        </div>
+                                <!--<p class="check_new">请登录您的邮箱进行验证</p>-->
+                                <!--<button type="button" class="btn_style" onclick="eg.changePnumber4()">确定</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
                         <!--<div class="info_email">-->
                         <!--<span class="glyphicon glyphicon-record r_style"></span>-->
 
@@ -401,32 +405,27 @@
                         <div class="info_password">
                             <span class="glyphicon glyphicon-record r_style"></span>
 
-                            <div
-                                    class="state">安全
-                            </div>
-                            <div
-                                    class="title">登录密码：
-                            </div>
+                            <div class="state">安全</div>
+                            <div class="title">登录密码</div>
                             <div class="info">已设置</div>
-                            <div
-                                    class="setting">设置
-                            </div>
+                            <div class="setting">修改密码</div>
                             <div class="set_password">
-                                <p class="sp1"><label class="spl">现有密码：</label><input type="password" size="30"
-                                                                                      id="ps1"><span class="error2"
-                                                                                                     id="tip1"></span>
-                                </p>
+                                <div class="change-grid">
+                                    <input id="psw" type="password" class="form-control" placeholder="请输入原有的密码">
+                                    <span class="psw1msg msg _none"></span>
+                                </div>
+                                <div class="change-grid _none">
+                                    <input id="newpsw" type="password" class="form-control" placeholder="请输入新密码">
+                                    <span class="pswmsg msg _none"></span>
 
-                                <p class="sp2"><label class="spl">输入新密码：</label><input type="password" size="30"
-                                                                                       id="ps2"><span class="error2"
-                                                                                                      id="tip2"></span>
-                                </p>
-
-                                <p class="sp3"><label class="spl">重新输入新密码：</label><input type="password" size="30"
-                                                                                         id="ps3"><span class="error2"
-                                                                                                        id="tip3"></span>
-                                </p>
-                                <button type="submit" class="btn_style" id="modify">修改</button>
+                                </div>
+                                <div class="change-grid _none">
+                                    <input id="checknum" type="text" class="form-control" placeholder="验证码">
+                                    <input id="checkbtn" type="button" value="点击获取验证码">
+                                    <span class="checkmsg msg _none"></span>
+                                </div>
+                                <button type="button" class="btn_style" id="check">确定</button>
+                                <button type="button" class="btn_style _none" id="modify">修改</button>
                                 <p id="tip"></p>
                             </div>
 

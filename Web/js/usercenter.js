@@ -6,9 +6,7 @@
 $(document).ready(function () {
 
     checkCookie()
-    orderSelect();
-    eg.collapse();
-    eg.eliminate();
+
 });
 function checkCookie() {
     var proeare = getposition();
@@ -28,6 +26,11 @@ function checkCookie() {
     $.Menulist();
     //请求商品列表
     eg.loadOrder(1, -1);
+    orderSelect();
+    eg.collapse();
+    eg.eliminate();
+    eg.changePwd();
+    eg.modifyPwd();
     return;
 }
 
@@ -366,31 +369,6 @@ function orderAjax(no, pageIndex, pageCount, status) {
     })
 }
 /***********************************安全设置***************************************/
-/*
- eg.md = function (content) {
- var reg = /(\d{3})\d{4}(\d{4})/;
- return content.replace(reg, "$1****$2");
- }
-
- eg.loadPnumber = function () {
- var user = {"username": "001"};
- $.ajax({
- type: "post",
- url: "http://192.168.199.242:8080/BSMD/",
- data: JSON.stringify(user),
- datatype: "json",
- header: {"Content-type": "application/json", "Accept": "application/json"},
- success: function (data) {
- var nps = eg.md(data.tel);
- $(".info_number .info").text(nps);
- $(".pnumber span").text(nps);
- $(".new_pnumber .phone_number").text(nps);
- }
- }
- );
-
- }
- */
 
 /*更换手机号step1*/
 eg.changePnumber1 = function () {
@@ -449,19 +427,6 @@ eg.changePnumber4 = function () {
     $(".info_number>.setting").text("设置");
 }
 
-/*--邮箱--*/
-//$(function () {
-//    $(".info_email>.setting").click(function () {
-//        if ($(".email_confirm").css("display") == "none") {
-//            $(".email_confirm").css("display", "block");
-//            $(".info_email>.setting").text("收起");
-//        }
-//        else {
-//            $(".email_confirm").css("display", "none");
-//            $(".info_email>.setting").text("设置");
-//        }
-//    });
-//})
 
 /*------------------------修改密码----------------*/
 eg.changePwd = function () {
@@ -478,134 +443,113 @@ eg.changePwd = function () {
 }
 
 eg.modifyPwd = function () {
-
-    $("#ps1").on('focus', function () {
-        var att1 = $(".sp1 .error2");
-        att1.removeClass("glyphicon glyphicon-ok oldps");
-        att1.text("");
-    });
-    $("#ps2").on('focus', function () {
-        var att2 = $(".sp2 .error2");
-        att2.removeClass("glyphicon glyphicon-ok oldps");
-        att2.text("");
-    });
-    $("#ps3").on('focus', function () {
-        var att3 = $(".sp3 .error2");
-        att3.removeClass("glyphicon glyphicon-ok oldps");
-        att3.text("");
-    });
-
-
-    //请求用户名与密码
-    var oldpassword;
-    var newpassword;
-    $("#ps1").on('blur', function () {
-        oldpassword = $("#ps1").val();
-        var att = $(".sp1 .error2");
-        //$.ajax({
-        //    url: "http://192.168.199.242:8080/BSMD/",
-        //    datatype: "json",
-        //    header: {"Content-type": "application/json", "Accept": "application/json"},
-        //    success: function (data) {
-        //
-        //        if (data.password == param) {
-        //            att.text("");
-        //            att.addClass("glyphicon glyphicon-ok oldps");
-        //            att.css("margin-left", "10px");
-        //        } else {
-        //            att.text("");
-        //            att.text("输入错误，请重新输入！");
-        //        }
-        //        att.css("display", "inline");
-        //    }
-        //});
-    });
-    $("#ps2").on('blur', function () {
-
-        var num = $("#ps2").val();
-        var att = $(".sp2 .error2");
-        var reg = /^\w*[a-zA-Z]+\w*$/;
-        if (reg.test(num)) {
-            att.text("");
-            att.text("密码位数6-16位，至少有一位是字母");
-        } else {
-            att.text("");
-            att.addClass("glyphicon glyphicon-ok oldps");
-            att.css("margin-left", "10px");
+    $("#check").on('click', function () {
+        var oldpassword = $("#psw").val();
+        if(oldpassword==null||oldpassword==""){
+            $(".psw1msg").text("请输入原有密码");
+            $(".psw1msg").removeClass("_none");
+            return;
         }
-        att.css("display", "inline");
-    });
-
-    $("#ps3").blur(function () {
-        var tmp = $("#ps2").val();
-        var num = $("#ps3").val();
-        var att = $(".sp3 .error2");
-        if (num != tmp) {
-            att.text("");
-            att.css("display", "inline");
-            att.text("两次密码不一致！");
-        } else {
-            newpassword = num;
-            att.text("");
-            att.addClass("glyphicon glyphicon-ok oldps");
-            att.css("display", "inline");
-            att.css("margin-left", "10px");
-        }
-    });
-
-    $("#modify").on('click', function () {
-        var flag = true;
-        var old = $("#ps1").val();
-        var pwd1 = $("#ps2").val();
-        var pwd2 = $("#ps3").val();
-        var num1 = pwd1.length;
-        var num2 = pwd2.length;
-        if (num1 != num2 || num1 < 6 || num2 < 6 || num1 > 12 || num2 > 12 || pwd1 != pwd2) {
-            flag = false;
-        } else {
-            flag = true;
-        }
-        if (flag) {
-            var oldnew = {"oldpwd": oldpassword, "newpwd": newpassword};
+        var tel= $.cookie("userphone");
+        var x = {"username": tel, "password":oldpassword};
+        if(tel!=null&&tel!=null){
             $.ajax({
-                url: "http://192.168.199.242:8080/BSMD/",
-                dataType: "json",
-                data: JSON.stringify(oldnew),
-                header: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
+                url: "http://192.168.199.242:8080/BSMD/loginMobile.do",
+                datatype: "json",
+                data:JSON.stringify(x),
+                header: {"Content-type": "application/json", "Accept": "application/json"},
                 success: function (data) {
-                    var att = $(".sp1 .error2");
-                    if (data.password == oldpassword) {
-                        att.text("");
-                        att.addClass("glyphicon glyphicon-ok oldps");
-                        att.css("margin-left", "10px");
-                    } else {
-                        att.text("");
-                        att.text("输入错误，请重新输入！");
+                    console.log(data);
+                    if (data.status=="success") {
+                        $(".psw1msg").addClass("glyphicon glyphicon-ok oldps");
+                        $(".psw1msg").removeClass("_none");
+                        $(".change-grid").removeClass("_none");
+                        $("#check").hide();
+                        $("#modify").removeClass("_none");
+                    } else if(data.status=="用户名或密码错误") {
+                        $(".psw1msg").text("输入错误，请重新输入！");
+                        $(".psw1msg").removeClass("_none");
                     }
-                    att.css("display", "inline");
                 }
             });
-            $("#ps1").val("");
-            $("#ps2").val("");
-            $("#ps3").val("");
-            $(".sp1 .error2").removeClass("glyphicon glyphicon-ok oldps");
-            $(".sp2 .error2").removeClass("glyphicon glyphicon-ok oldps");
-            $(".sp3 .error2").removeClass("glyphicon glyphicon-ok oldps");
-            $("#tip").empty();
-            $("#tip").css("color", "#18A60C");
-            $("#tip").css("display", "inline");
-            $("#tip").text("修改成功~");
-        } else {
-            $("#tip").css("color", "#ff3333");
-            $("#tip").css("display", "inline");
-            $("#tip").text("无法提交，请按照要求填写！");
         }
-        $("#tip4").delay(2000).hide(0);
+    })
+    $("#checkbtn").bind("click",function(){
+        var tel= $.cookie("userphone");
+        if (dopsw() ) {
+            var psw = strEnc($("#psw2").val(), "1", "2", "3");
+            var x={"password":psw,"tel":tel};
+            $.ajax({
+                type: "post",
+                data: JSON.stringify(x),
+                dataType: "json",
+                url: "http://192.168.199.242:8080/BSMD//validateAndSend.do",
+                success: function (data) {
+                    console.log(data);
+                    if(data.message=="success"){
+                        var k = strEnc(data.id, "1", "2", "3");
+                        sessionStorage.setItem("id_it_id",k);
+                    }
+                }
+            })
+        }
+        else{
+            return false;
+        }
     });
+    $("#modify").on("click", function () {
+        if (dopsw() &&docheck()) {
+            var tel= $.cookie("userphone");
+            var psw = strEnc($("#psw2").val(), "1", "2", "3");
+            var id=strDec(sessionStorage.getItem("id_it_id"),"1", "2", "3");
+            var code=$("#checknum").val();
+            var x={"userInfo":{"password":psw,"tel":tel},"id":id,"validateCode":code};
+            $.ajax({
+                type: "post",
+                data: JSON.stringify(x),
+                dataType: "json",
+                url: "http://192.168.199.242:8080/BSMD//register.do",
+                success: function (data) {
+                    console.log(data);
+                    if (data.message =="success") {
+                       //修改是否成功
+                    }
+                }
+            })
+        }
+    })
+
 }
+
+function docheck(){
+    var num=$("#checknum");
+    var span=$(".checkmsg");
+    if(num.val()==""){
+        span.html("验证码不为空");
+        return false;
+    }else{
+        span.html('<span class="glyphicon glyphicon-ok-circle" style="color: #26BC85"> </span>');
+        span.removeClass("_none");
+        return true;
+    }
+
+}
+//密码验证==============================
+function dopsw(){
+    var t=$("#newpsw");
+    var span=$(".pswmsg");
+    if(/^\w*[a-zA-Z]+\w*$/.test(t.val())){
+        span.html('<span class=" 	glyphicon glyphicon-ok-circle" style="color: #26BC85"></span>');
+        span.removeClass("_none");
+        return true;
+    }
+    else{
+        span.html('密码6-16位');
+        span.removeClass("_none");
+        return false;
+    }
+}
+
 
 
 //选择小区完成

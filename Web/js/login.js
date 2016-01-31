@@ -50,6 +50,7 @@ function login_submit() {
                 }
                 if(data.status=="success"){
                     $.cookie('username',data.userInfo.custNo,2);
+                    $.cookie('userphone',data.userInfo.tel,2);
                     $("#fakeLoader").fakeLoader({
                         timeToHide:2000,//加载效果持续时间
                         zIndex:"999",

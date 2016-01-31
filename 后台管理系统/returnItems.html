@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>退换货管理</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/datepicker3.css" rel="stylesheet">
+    <link href="css/bootstrap-table.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/onsaleItems.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+            <ul class="user-menu">
+                <li class="dropdown pull-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> User <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <form role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+    </form>
+    <ul class="nav menu">
+        <li ><a href="index.html"><span class="glyphicon glyphicon-dashboard"></span>首页</a></li>
+        <li class="parent active">
+            <a href="#">
+                <span class="glyphicon glyphicon-list"></span> 外卖管理 <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-minus"></em></span>
+            </a>
+            <ul class="children collapse in" id="sub-item-1">
+                <li>
+                    <a class="" href="widgets.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>订单管理
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="ItemsCatalog.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>商品目录管理
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="returnItems.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>退换货管理
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="news.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>公告发布
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li ><a href="promoManage.html"><span class="glyphicon glyphicon-list-alt"></span>促销管理</a></li>
+        <li><a href="SysStatistic.html"><span class="glyphicon glyphicon-pencil"></span> 系统统计</a></li>
+        <li><a href="Sysconfig.html"><span class="glyphicon glyphicon-info-sign"></span>系统配置</a></li>
+        <li class="parent ">
+            <a href="#">
+                <span class="glyphicon glyphicon-list"></span> 管理 <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-minus"></em></span>
+            </a>
+            <ul class="children collapse in" id="sub-item-2">
+                <li>
+                    <a class="" href="manager.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>后台管理员管理
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="#">
+                        <span class="glyphicon glyphicon-share-alt"></span>前台注册用户
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="#">
+                        <span class="glyphicon glyphicon-share-alt"></span> 功能3
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li role="presentation" class="divider"></li>
+        <!--<li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Login Page</a></li>-->
+    </ul>
+
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li class="active">退换货管理</li>
+        </ol>
+    </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">退换货管理</h1>
+        </div>
+    </div><!--/.row-->
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active">
+            <a href="#return" data-toggle="tab">
+                退货
+            </a>
+        </li>
+        <li><a href="#change" data-toggle="tab">换货</a></li>
+
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="return">
+            <div class="panel panel-default" style="width: 70%">
+                <div class="panel-heading">
+                    订单总额：<span class="total">49.90</span>元
+                    <button type="submit" class="btn btn-primary " style="width: 82px;float: right">取消退货</button>
+                    <button type="submit" class="btn btn-primary " style="width: 82px;float: right;margin-right: 15px">同意退货</button>
+
+                </div>
+                <div class="panel-body">
+                    <span class="glyphicon glyphicon-time"> </span><span class="time">2016/1/28/21:20</span><br>
+                    <span class="glyphicon glyphicon-map-marker"> </span><span class="user-address">福建师范大学桂2</span>
+                    <span style="float: right">客户账号：张三</span>
+                    <span  style="float: right">商品编号：12369369764</span>
+            <table class="table " style="margin-top: 20px">
+                <thead class="itemlist">
+                <tr>
+
+                    <th>商品名称</th>
+
+                    <th>数量</th>
+                    <th>价格(元)</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="goods">
+
+
+                        <a><img src="images/pic1.jpg"></a>
+                        <div class="desc">
+                            <span target="_blank">好丽友薯片(原味)104g</span>
+                        </div>
+
+
+                    </td>
+
+                    <td style="width: 12%"><span>34</span></td>
+                    <td class="sprice"><span>¥12.3</span></td>
+
+
+                </tr>
+                </tbody>
+                </table>
+                    </div>
+                </div>
+        </div>
+        <div class="tab-pane fade" id="change">
+            <div class="panel panel-default" style="width: 70%">
+                <div class="panel-heading">
+                    订单总额：<span class="total">49.90</span>元
+                    <button type="submit" class="btn btn-primary " style="width: 82px;float: right">同意换货</button>
+                </div>
+                <div class="panel-body">
+                    <span class="glyphicon glyphicon-time"> </span><span class="time">2016/1/28/21:20</span><br>
+                    <span class="glyphicon glyphicon-map-marker"> </span><span class="user-address">换货原因：商品过期</span>
+                    <span style="float: right">客户账号：张三</span>
+                    <span  style="float: right">商品编号：12369369764</span>
+                    <table class="table " style="margin-top: 20px">
+                        <thead class="itemlist">
+                        <tr>
+
+                            <th>商品名称</th>
+
+                            <th>数量</th>
+                            <th>价格(元)</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--<tr>-->
+                        <!--<td style="width: 15%">-->
+                        <!--<input type="checkbox" class="cart-checkbox cart-checkbox-checked" checked="yes" value="" ><span style="display: inline">全选</span>-->
+                        <!--<button type="submit" class="btn btn-primary " style="width: 82px;">批量删除</button>-->
+                        <!--</td>-->
+
+                        <!--</tr>-->
+
+                        <tr>
+
+
+                            <td class="goods">
+
+
+                                <a><img src="images/pic1.jpg"></a>
+                                <div class="desc">
+                                    <span target="_blank">好丽友薯片(原味)104g</span>
+                                </div>
+
+
+                            </td>
+
+                            <td style="width: 12%"><span>34</span></td>
+                            <td class="sprice"><span>¥12.3</span></td>
+
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+   </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

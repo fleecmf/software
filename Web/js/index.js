@@ -362,7 +362,7 @@ function loadname(){
         $(".hd-login").hide();
         $(".haslogin").show();
         cartnum(username);
-
+       // loginout();
     }
 }
 //模态框地址选择完成后，点击确定页面加载
@@ -561,8 +561,18 @@ function onmenu() {
                 html += '</span></div>';
             }
             $(".submenu1").append(html0);
-
             $(".mainmenu").append(html);
+            //广告图片
+            var adol='<ol class="carousel-indicators"><li data-target="#myCarousel" data-slide-to="0" class="active"></li>';
+            var  addiv='<div class="carousel-inner"><div class="item active"><img  style="width: 100%" src="'+json.adlist[0]+'" alt="First slide"> </div>';
+            for(var i=1;i<json.adlist.length;i++){
+                adol+=' <li data-target="#myCarousel" data-slide-to="'+i+'"></li>';
+                addiv+='<div class="item"> <img  style="width: 100%" src="'+json.adlist[i]+'" alt="Second slide"> </div>';
+            }
+            adol+='</ol>'
+            addiv+='</div>'
+            $("#myCarousel").html(adol+addiv);
+
             //热门商品
             var html2 = "";
             for (var i = 0; i < json.listhot.length; i++) {
@@ -585,7 +595,7 @@ function onmenu() {
                 html3 += '<p><a href="'+hr3+'">' + json.listcx[i].itemName + '</a></p></div> </a> </div><div class="clearfix"></div> </div>';
             }
             $("#topnav2").html(html3);
-
+            //分类
             var html4='';
             for(var i=0;i<json.bigclass.length;i++){
                 var hr1='itemList.html?bigclass='+json.bigclass[i].name;
@@ -649,6 +659,47 @@ function cartnum(name) {
         }
     })
 }
+function createXHR(){
+    if(typeof XMLHttpRequest!="undefinde"){
+        return new XMLHttpRequest();
+    }else if(typeof ActiveXObject !="undefine"){
+        if(typeof arguments.callee.activeXString !="string"){
+            var versions=["MSXML2.XMLHttp.6.0","MSXMLHttp.3.0","MSXML2.XMLHttp"],
+                i,len;
+            for(i=0,len=versions.length;i<len;i++){
+                try{
+                    new ActiveXObject(versions[i]);
+                    arguments.callee.activeXString=versions[i];
+                    break;
+                }catch(ex) {
+
+                }
+            }
+        }
+        return new ActiveXObject(arguments.callee.activeXString);
+    }else {
+        throw new Error("No XHR object available.");
+    }
+}
+//退出登录
+function loginout(){
+    $("#loginout").bind("click",function(){
+        $.cookie("username","");
+        var xhr=createXHR();
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                if((xhr.status>=200&&xhr.status<300)||xhr.status==304){
+                    alert(xhr.response);
+                }else{
+                    alert("Request was unsuccessful :"+xhr.status);
+                }
+            }
+        }
+        xhr.open("post","http://192.168.199.242:8080/BSMD/logout.do",true);
+        xhr.send(null);
+
+    })
+}
 //首页加载
 $(document).ready(function () {
 
@@ -677,10 +728,5 @@ $(document).ready(function () {
     }
     loadname();
     checkCookie();
-    //首页中部滑动
-    $(".midslide").each(function () {
-        $(this).luara({width: "330", height: "360", interval: 5000, selected: "selected", deriction: "left"})
-    });
-
 })
 

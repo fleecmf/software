@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商品目录管理</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/onsaleItems.css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+            <ul class="user-menu">
+                <li class="dropdown pull-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> User <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <form role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+    </form>
+    <ul class="nav menu">
+        <li ><a href="index.html"><span class="glyphicon glyphicon-dashboard"></span>首页</a></li>
+        <li class="parent active">
+            <a href="#">
+                <span class="glyphicon glyphicon-list"></span> 外卖管理 <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-minus"></em></span>
+            </a>
+            <ul class="children collapse in" id="sub-item-1">
+                <li>
+                    <a class="" href="widgets.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>订单管理
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="ItemsCatalog.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>商品目录管理
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="returnItems.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>退换货管理
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="news.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>公告发布
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="promoManage.html"><span class="glyphicon glyphicon-list-alt"></span>促销管理</a></li>
+        <li><a href="SysStatistic.html"><span class="glyphicon glyphicon-pencil"></span> 系统统计</a></li>
+        <li ><a href="Sysconfig.html"><span class="glyphicon glyphicon-info-sign"></span>系统配置</a></li>
+        <li class="parent ">
+            <a href="#">
+                <span class="glyphicon glyphicon-list"></span> 管理 <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-minus"></em></span>
+            </a>
+            <ul class="children collapse in" id="sub-item-2">
+                <li>
+                    <a class="" href="manager.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>后台管理员管理
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="registerUser.html">
+                        <span class="glyphicon glyphicon-share-alt"></span>前台注册用户
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="#">
+                        <span class="glyphicon glyphicon-share-alt"></span> 功能3
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li role="presentation" class="divider"></li>
+        <!--<li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Login Page</a></li>-->
+    </ul>
+
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li class="active">商品目录管理</li>
+        </ol>
+    </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">商品目录管理</h1>
+        </div>
+    </div>
+
+        <form >
+        <span>关键词</span>
+        <input id="mysearch" class="searchItems" type="text" value=" " onFocus="this.value = '';">&nbsp;&nbsp;&nbsp;&nbsp;
+         <span>分类</span>
+       <select id="area" class="searchItems" onchange="showShop()" >
+        <option value="0">全部</option>
+        <option value="1">-请选择-</option>
+        <option value="2">-请选择-</option>
+      </select>&nbsp;&nbsp;
+       <button type="submit" class="btn btn-primary btnsearch">查询</button><a href="#" class="resetSearch">清空查询条件</a>
+        </form>
+
+    <!--<div class="navlist">-->
+        <!--<div class="saleTitle">-->
+        <!--<span class="col-lg-5">商品名称</span>-->
+        <!--<span class="col-lg-2"> 价格(元)</span>-->
+        <!--<span class="col-lg-2"> 销量/库存</span>-->
+        <!--<span class="col-lg-1"> 类目</span>-->
+        <!--<span class="col-lg-2">操作</span>-->
+        <!--&lt;!&ndash;<span class="col-lg-1"> </span>&ndash;&gt;-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+    <table class="table " style="margin-top: 20px">
+        <thead class="itemlist">
+        <tr>
+            <th><input type="checkbox" class="cart-checkbox cart-checkbox-checked" checked="yes" value=""><span>全选</span></th>
+            <th>商品名称</th>
+            <th>价格(元)</th>
+            <th>销量/库存</th>
+            <th>图片/编辑</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="item_all"> <input type="checkbox" class="cart-checkbox cart-checkbox-checked" checked="yes" value=""></td>
+            <td class="goods">
+                <div class="desc">
+                   <span target="_blank">好丽友薯片(原味)104g</span>
+                </div>
+            </td>
+            <td class="sprice"><span>¥12.3</span></td>
+            <td><span>34</span>/<span>150</span></td>
+            <td>
+                <a><img src="images/pic1.jpg"></a>
+                <a href="editItem.html" style="display: block">编辑</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="item_all"> <input type="checkbox" class="cart-checkbox cart-checkbox-checked" checked="yes" value=""></td>
+            <td class="goods">
+                <div class="desc">
+                    <span target="_blank">好丽友薯片(原味)104g</span>
+                </div>
+            </td>
+            <td class="sprice"><span>¥12.3</span></td>
+            <td><span>34</span>/<span>150</span></td>
+            <td>
+                <a><img src="images/pic1.jpg"></a>
+                <a href="editItem.html" style="display: block">编辑</a>
+            </td>
+        </tr>
+        <!--<tr>-->
+            <!--<td class="item_all"> <input type="checkbox" class="cart-checkbox cart-checkbox-checked" checked="yes" value=""></td>-->
+            <!--<td class="goods">-->
+
+
+                <!--<a><img src="images/pic1.jpg"></a>-->
+                <!--<div class="desc">-->
+                    <!--<span target="_blank">好丽友薯片(原味)104g</span>-->
+
+                <!--</div>-->
+                <!--<a href="editItem.html" style="display: block">编辑</a>-->
+
+            <!--</td>-->
+            <!--<td class="sprice"><span>¥12.3</span></td>-->
+            <!--<td><span>34</span>/<span>150</span></td>-->
+            <!--<td><select  class="searchItems" style="border: 1px solid #e0e0e0">-->
+                <!--<option value="0">特价促销</option>-->
+                <!--<option value="1">方便速食</option>-->
+                <!--<option value="2">罐头食品</option>-->
+            <!--</select>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<div class="doitems">-->
+                    <!--<a>库存加满</a>-->
+                    <!--<a>商品下架</a>-->
+                    <!--<a>商品推荐</a>-->
+                <!--</div>-->
+            <!--</td>-->
+        <!--</tr>-->
+        </tbody>
+    </table>
+    </div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--<script src="js/bootstrap-table.js"></script>-->
+<script>
+
+    !function ($) {
+        $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+            $(this).find('em:first').toggleClass("glyphicon-minus");
+        });
+        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+    }(window.jQuery);
+
+
+</script>
+</body>
+</html>

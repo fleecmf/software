@@ -27,7 +27,18 @@
                 </div>
                 <div class=" label box haslogin" style="display: none;">
                     <span class="hd_hi">Hi,</span>
-                    <a id="username"></a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info" id="username"></button>
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="usercenter.html">个人中心</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javaScript:;" id="loginout">退出</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="box1 ">
                     <span class="hd_hi">收货地：</span>
@@ -132,12 +143,6 @@
             <!--<li><span>|</span></li>-->
             <!--<li><a href="#history" data-toggle="tab">浏览记录</a></li>-->
         </ul>
-
-            <ul class="nav nav-tabs " id="liketab">
-                <li class="active"><a href="#like" data-toggle="tab">喜欢的商品</a></li>
-                <!--<li><span>|</span></li>-->
-                <!--<li><a href="#history" data-toggle="tab">浏览记录</a></li>-->
-            </ul>
 
     </div>
 </div>

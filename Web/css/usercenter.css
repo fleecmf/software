@@ -404,7 +404,9 @@ a:link, a:visited, a:hover, a:active {
 .state {
     font-size: 14px;
 }
-
+.info_password>.title{
+    color: #333;;
+}
 .title, .info, .setting {
     font-size: 14px;
 }
@@ -496,4 +498,8 @@ p.confirm {
     font-size: 14px;
     left: 50%;
 }
-
+.titl{
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
